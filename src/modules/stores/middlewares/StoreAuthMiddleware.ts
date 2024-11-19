@@ -1,11 +1,11 @@
 import {Request, Response, NextFunction } from "express";
-import AppError from "../errors/AppError";
+import AppError from "../../../shared/errors/AppError";
 import { Secret, verify } from "jsonwebtoken";
-import { ITokenPayload } from "../models/ITokenPayload";
+import { ITokenPayload } from "../../../shared/models/ITokenPayload";
 
 
 
-export default class AuthMiddleware{
+export default class StoreAuthMiddleware{
     static execute (request: Request, response: Response, next: NextFunction): void{
         const authHeader = request.headers.authorization;
 
@@ -16,7 +16,7 @@ export default class AuthMiddleware{
         const [, token] = authHeader.split(' ');
 
         try{
-            const decodedToken = verify(token, process.env.APP_SECRET as Secret)
+            const decodedToken = verify(token, process.env.STORE_SECRET as Secret)
 
             const { sub } = decodedToken as ITokenPayload;
 

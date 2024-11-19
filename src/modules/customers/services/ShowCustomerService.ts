@@ -3,14 +3,6 @@ import { IShowCustomer } from "../models/IShowCustomer";
 import { customerRepositories } from "../infra/database/repositories/CustomersRepositories";
 import AppError from "../../../shared/errors/AppError";
 
-
-
-
-
-
-
-
-
 export default class ShowCostumerService {
     async execute({id}: IShowCustomer): Promise<Customer> {
         
