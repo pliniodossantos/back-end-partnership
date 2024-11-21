@@ -8,13 +8,13 @@ import StoreAuthMiddleware from "../../../middlewares/StoreAuthMiddleware";
 
 
 const storePasswordRouter = Router();
-const forgotCustomerPasswordController = new ForgotStorePasswordController();
-const resetCustomerPasswordController =  new ResetStorePasswordController();
-const updateCustomerPasswordControlers = new UpdateStorePasswordControlers();
+const forgotStorePasswordController = new ForgotStorePasswordController();
+const resetStorePasswordController =  new ResetStorePasswordController();
+const updateStorePasswordControlers = new UpdateStorePasswordControlers();
 
-storePasswordRouter.post('/forgot', ForgotStorePasswordSchema, forgotCustomerPasswordController.create,);
-storePasswordRouter.patch('/reset', ResetStorePasswordSchema, resetCustomerPasswordController.create);
-storePasswordRouter.patch('/update/:id', updateStorePasswordSchema, StoreAuthMiddleware.execute, AuthCorrectId.execute, updateCustomerPasswordControlers.create);
+storePasswordRouter.post('/forgot', ForgotStorePasswordSchema, forgotStorePasswordController.create,);
+storePasswordRouter.patch('/reset', ResetStorePasswordSchema, resetStorePasswordController.create);
+storePasswordRouter.patch('/update/:id', updateStorePasswordSchema, StoreAuthMiddleware.execute, AuthCorrectId.execute, updateStorePasswordControlers.create);
 
 
 export default storePasswordRouter;

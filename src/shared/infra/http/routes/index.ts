@@ -5,6 +5,9 @@ import customerPasswordRouter from "../../../../modules/customers/infra/http/rou
 import storesRouter from "../../../../modules/stores/infra/http/routes/StoreRoutes";
 import sessionStoreRoute from "../../../../modules/stores/infra/http/routes/SessionStoreRoutes";
 import storePasswordRouter from "../../../../modules/stores/infra/http/routes/StorePasswordRoutes";
+import consulantsRouter from "../../../../modules/consultants/infra/http/routes/ConsulantRoutes";
+import sessionConsulantRouter from "../../../../modules/consultants/infra/http/routes/SessionConsultantRoutes";
+import consultantPasswordRouter from "../../../../modules/consultants/infra/http/routes/ConsultantPasswordRoutes";
 
 const routes = Router();
 
@@ -19,6 +22,10 @@ routes.use('/customers/password', customerPasswordRouter)
 routes.use('/stores', storesRouter);
 routes.use('/stores/sessions', sessionStoreRoute);
 routes.use('/stores/password', storePasswordRouter)
+
+routes.use('/consulants', consulantsRouter);
+routes.use('/consulants/sessions', sessionConsulantRouter);
+routes.use('/consulants/password', consultantPasswordRouter)
 
 
 export default routes;

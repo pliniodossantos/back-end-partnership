@@ -5,7 +5,7 @@ import { ITokenPayload } from "../../../shared/models/ITokenPayload";
 
 
 
-export default class CustomerAuthMiddleware{
+export default class ConsultantAuthMiddleware{
     static execute (request: Request, response: Response, next: NextFunction): void{
         const authHeader = request.headers.authorization;
 
@@ -16,7 +16,7 @@ export default class CustomerAuthMiddleware{
         const [, token] = authHeader.split(' ');
 
         try{
-            const decodedToken = verify(token, process.env.APP_SECRET as Secret)
+            const decodedToken = verify(token, process.env.CONSULTANT_SECRET as Secret)
 
             const { sub } = decodedToken as ITokenPayload;
 

@@ -20,7 +20,7 @@ export default class StoreAuthMiddleware{
 
             const { sub } = decodedToken as ITokenPayload;
 
-            request.customer = {
+            request.user = {
                 id: sub
             }
             return next()
