@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "migration:create": "cross-env MIGRATION_NAME=$teste ts-node-dev ./node_modules/typeorm/cli.js migration:create src/shared/infra/typeorm/migrations/CreateConsultantToken",
+    "migration:create": "cross-env MIGRATION_NAME=$teste ts-node-dev ./node_modules/typeorm/cli.js migration:create src/shared/infra/typeorm/migrations/CreateOrders",
     "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run -d ./src/shared/infra/typeorm/data-source.ts"
   },
   "keywords": [],

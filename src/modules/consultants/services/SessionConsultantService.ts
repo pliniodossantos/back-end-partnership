@@ -23,7 +23,7 @@ export default class SessionConsultantService{
             subject: String(consultant.id),
             expiresIn: '5d',
         });
-        console.log(token);
+      
         return{
             consultant,
             token
