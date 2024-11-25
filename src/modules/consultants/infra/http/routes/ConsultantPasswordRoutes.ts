@@ -3,7 +3,7 @@ import AuthCorrectId from "../../../../../shared/middlewares/AuthCorrectId";
 import ForgotConsultantPasswordController from "../controllers/ForgotConsultantPasswordController";
 import ResetConsultantPasswordController from "../controllers/ResetConsultantPasswordController";
 import UpdateConsultantPasswordController from "../controllers/UpdateConsultantPasswordController";
-import { ForgotConsultantPasswordSchema, ResetConsultantPasswordSchema, updateConsultantPasswordSchema } from "../schemas/StoreConsultantSchema";
+import { ForgotConsultantPasswordSchema, ResetConsultantPasswordSchema, updateConsultantPasswordSchema } from "../schemas/PasswordConsultantSchema";
 import ConsultantAuthMiddleware from "../../../middlewares/ConsultantAuthMiddleware";
 
 

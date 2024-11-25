@@ -15,17 +15,21 @@ routes.get('/health', (req, res) =>{
     return res.json({message:'routes on road'});
 });
 
-routes.use('/customers', customersRouter);
+
+
 routes.use('/customers/sessions', sessionCustomerRouter);
-routes.use('/customers/password', customerPasswordRouter)
+routes.use('/customers/password', customerPasswordRouter);
+routes.use('/customers', customersRouter);
 
-routes.use('/stores', storesRouter);
+
 routes.use('/stores/sessions', sessionStoreRoute);
-routes.use('/stores/password', storePasswordRouter)
+routes.use('/stores/password', storePasswordRouter);
+routes.use('/stores', storesRouter);
 
-routes.use('/consulants', consulantsRouter);
+
 routes.use('/consulants/sessions', sessionConsulantRouter);
-routes.use('/consulants/password', consultantPasswordRouter)
+routes.use('/consulants/password', consultantPasswordRouter);
+routes.use('/consulants', consulantsRouter);
 
 
 export default routes;
