@@ -1,76 +1,115 @@
 Backend desenvolvido como protótipo para a empresa plugowtech em parceria com a DNC, utilizando Typescript, Node, Typeorm e Postgress.
 
+
 Utilize o "npm install" para instalar as dependências do projeto.
+
 
 ".env.example" contém todos os campos necessários para informar os parâmetros do banco de dados, "secrets" para tokens de autenticação.
 
+
 "EMAIL_USER" e "EMAIL_PASS" para configurar envio de email automático.
+
 
 "ADM_Email" e "ADM_KEY" para escolher o e-mail administrador principal e palavra-chave para a criação de um novo admin.
 
+
 Para criar as migrações no banco de dados, utilize o comando "npm run migration:run"
+
 
 Descritivo de rotas:
 
+
 -------------Customers (Cliente Principal da aplicação, conhecido também como "profissional"):-------------
+
 /customers método POST: cria um novo cliente a partir dos seguintes campos: "name"(string), "email"(string), "cpfOrCnpj"(string), "password"(string), "birthday"(date), "complement"(string).
+
 
 /customers/id(enviar o id do cliente) método GET: Retorna todos os dados do cliente, necessário token de autenticação, cada cliente retorna apenas os seus próprios dados, dados dos demais clientes protegidos por autenticação.
 
+
 /customers/id(enviar o id do cliente) método PUT: edita os seguintes campos do cliente: "name", "email", "cpfOrCnpj", "birthday" e "complement", necessário token de autenticação.
+
 
 /customers/state/:id (enviar o id do cliente) método PATCH: edita o campo "active", necessário token de autenticação.
 
+
 /customers/orders/:id (enviar o id do cliente) método GET: retorna todos os pedidos referentes a este cliente, necessário token de autenticação.
+
 
 /customers/password/update/:id (enviar o id do cliente) método PATCH: atualiza a senha do cliente utilizando os seguintes campos: "oldPassword" (informe a senha antiga), "newPassword" (informe a nova senha), "newPassword_confirmation" (informe novamente a nova senha), necessário token de autenticação.
 
+
 /customers/password/forgot método POST: envia para o e-mail de cadastro do cliente, token para atualização de senha, caso a senha antiga tenha sido esquecida.
+
 
 /customers/password/reset método PATCH: altera a senha do cliente utilizando o token recebido por email: "token", "password" e "password_confirmation".
 
+
 /customers/sessions método POST: retorna o token de autenticação, informando os dados do cliente nos seguintes campos: "cpfOrCnpj" e "password".
 
+
 -------------Stores: -------------
+
 /stores método POST: cria uma nova Loja a partir dos seguintes campos: "name"(string), "email"(string), "cnpj"(string), "password"(string) e "birthday"(date).
+
 
 /stores/id(enviar o id da loja) método GET: Retorna todos os dados da loja, necessário token de autenticação, cada loja retorna apenas os seus próprios dados, dados das demais lojas protegidos por autenticação.
 
+
 /stores/id(enviar o id da loja) método PUT: edita os seguintes campos da loja: "name", "email", "cnpj" e "birthday", sendo necessário token de autenticação.
+
 
 /stores/state/:id (enviar o id da loja) método PATCH: edita o campo "active", necessário token de autenticação.
 
+
 /stores/orders/:id (enviar o id da loja) método GET: retorna todos os pedidos referentes a esta loja, necessário token de autenticação.
+
 
 /stores/password/update/:id (enviar o id da loja) método PATCH: atualiza a senha da loja utilizando os seguintes campos: "oldPassword" (informe a senha antiga), "newPassword" (informe a nova senha), "newPassword_confirmation" (informe novamente a nova senha), necessário token de autenticação.
 
+
 /stores/password/forgot método POST: envia para o e-mail de cadastro da loja, token para atualização de senha, caso a senha antiga tenha sido esquecida.
+
 
 /stores/password/reset método PATCH: altera a senha da loja utilizando o token recebido por email: "token", "password" e "password_confirmation".
 
+
 /stores/sessions método POST: retorna o token de autenticação, informando os dados da loja nos seguintes campos: "cnpj" e "password".
 
+
+
 -------------Consulants (Consultor): -------------
+
 /consulants método POST: cria um novo consultor a partir dos seguintes campos: "name"(string), "email"(string), "cpf"(string), "password"(string), "birthday"(date) e "cnpjStore"(string).
  
+
 /consulants/id(enviar o id do consultor) método GET: Retorna todos os dados do consultor, necessário token de autenticação, cada consultor retorna apenas os seus próprios dados, dados dos demais consultores protegidos por autenticação.
  
+
 /consulants/id (enviar o id do consultor) método PUT: edita os seguintes campos do consultor: "name", "email", "cpf" e "birthday", sendo necessário token de autenticação.
+
  
 /consulants/state/:id (enviar o id do consultor) método PATCH: edita o campo "active", necessário token de autenticação.
  
+
 /consulants/storeupdate/:id (enviar o id do consultor) método PATCH: edita o campo "cnpjStore"(string), necessário token de autenticação.
  
+
 /consulants/orders/:id (enviar o id do consultor) método GET: retorna todos os pedidos referentes a este consultor, necessário token de autenticação.
  
+
 /consulants/orders/:id (enviar o id do consultor) método POST: cria um pedido com os seguintes campos: "customerCpfOrCnpj"(string), "points_customer"(number) e "obs"(string).
+
 
 /consulants/password/update/:id (enviar o id do consultor) método PATCH: atualiza a senha do consultor utilizando os seguintes campos: "oldPassword" (informe a senha antiga), "newPassword" (informe a nova senha), "newPassword_confirmation" (informe novamente a nova senha), necessário token de autenticação.
  
+
 /consulants/password/forgot método POST: envia para o e-mail de cadastro do consultor, token para atualização de senha, caso a senha antiga tenha sido esquecida.
  
+
 /consulants/password/reset método PATCH: altera a senha do consultor utilizando o token recebido por email: "token", "password" e "password_confirmation".
  
+
 /stores/sessions método POST: retorna o token de autenticação, informando os dados do consultor nos seguintes campos: "cpf" e "password".
  
  
