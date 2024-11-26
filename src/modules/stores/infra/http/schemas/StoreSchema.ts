@@ -26,8 +26,6 @@ export const idParamsValidate = celebrate({
       name: Joi.string(),
       email: Joi.string().email(),
       cnpj: Joi.string(),
-      password: Joi.string(),
-      active: Joi.boolean(),
       birthday: Joi.date()
     },
   });

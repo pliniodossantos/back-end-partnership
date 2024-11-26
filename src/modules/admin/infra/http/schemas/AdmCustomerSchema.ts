@@ -7,7 +7,6 @@ export const AdmUpdateCustomerSchema = celebrate({
         name: Joi.string(),
         email: Joi.string().email(),
         cpfOrCnpj: Joi.string(),
-        password: Joi.string(),
         birthday: Joi.date(),
         complement: Joi.string()
     },

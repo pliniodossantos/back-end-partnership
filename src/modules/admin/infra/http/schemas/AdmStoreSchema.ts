@@ -5,7 +5,6 @@ export const AdmUpdateStoreSchema = celebrate({
         name: Joi.string(),
         email: Joi.string().email(),
         cnpj: Joi.string(),
-        password: Joi.string(),
         birthday: Joi.date()
     },
 });

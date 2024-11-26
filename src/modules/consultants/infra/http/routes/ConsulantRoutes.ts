@@ -20,11 +20,9 @@ const updateConsultantStoreController = new UpdateConsultantStoreController();
 const listConsulantOrdersControllers = new ListConsulantOrdersControllers();
 const ordersControllers = new OrdersControllers();
 
-consulantsRouter.get('/', ConsultantAuthMiddleware.execute, consultantsControllers.index);
 consulantsRouter.get('/:id',  idParamsValidate , ConsultantAuthMiddleware.execute, AuthCorrectId.execute, consultantsControllers.show);
 consulantsRouter.post('/', createConsultantSchema , consultantsControllers.create);
 consulantsRouter.put('/:id', updateConsultantSchema, ConsultantAuthMiddleware.execute, AuthCorrectId.execute, consultantsControllers.update);
-consulantsRouter.delete('/:id', idParamsValidate, ConsultantAuthMiddleware.execute, AuthCorrectId.execute, consultantsControllers.delete);
 consulantsRouter.patch('/state/:id', updateConsultantStateSchema, ConsultantAuthMiddleware.execute, AuthCorrectId.execute, updateConsultantStateController.update ) 
 consulantsRouter.patch('/storeupdate/:id', updateConsultantStoreSchema, ConsultantAuthMiddleware.execute, AuthCorrectId.execute, updateConsultantStoreController.update)
 consulantsRouter.get('/orders/:id', idParamsValidate, ConsultantAuthMiddleware.execute, AuthCorrectId.execute, listConsulantOrdersControllers.show)

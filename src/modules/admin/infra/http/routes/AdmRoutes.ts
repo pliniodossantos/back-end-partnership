@@ -10,7 +10,6 @@ import ApproveAdmcontroller from "../controllers/admin/ApproveAdmcontroller";
 
 const admRouter = Router();
 const admControllers = new Admcontrollers();
-const approveAdmcontroller = new ApproveAdmcontroller();
 
 admRouter.get('/:id',  idParamsValidate , AdmAuthMiddleware.execute, AuthCorrectId.execute, admControllers.show);
 admRouter.post('/send' , admControllers.send);

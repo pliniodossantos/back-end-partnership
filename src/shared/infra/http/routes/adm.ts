@@ -10,7 +10,7 @@ import sessionAdmRouter from "../../../../modules/admin/infra/http/routes/Sessio
 const routesAdm = Router();
 
 routesAdm.use('/admin/password', admPasswordRouter);
-routesAdm.use('/admin/session', sessionAdmRouter);
+routesAdm.use('/admin/sessions', sessionAdmRouter);
 routesAdm.use('/admin/consulants', AdmconsulantsRouter);
 routesAdm.use('/admin/customers', AdmcustomersRouter);
 routesAdm.use('/admin/stores', AdmstoresRouter);
