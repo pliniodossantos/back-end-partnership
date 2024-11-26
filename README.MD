@@ -74,65 +74,100 @@ Descritivo de rotas:
 /stores/sessions método POST: retorna o token de autenticação, informando os dados do consultor nos seguintes campos: "cpf" e "password".
  
  
+
 -------------Adm: -------------
+
+
 /admin/send método POST: Dispara um e-mail para o e-mail de administrador principal contendo o "keyAcess" para criar um novo adm.
+
 
 /admin/create método POST: cria um novo admin a partir dos seguintes campos: "name"(string), "email"(string), "cpf"(string), "password"(string) e "KeyAcess"(string).
 
+
 /admin/id(enviar o id do admin) método GET: Retorna todos os dados do admin, necessário token de autenticação, cada admin retorna apenas os seus próprios dados, dados das demais admins protegidos por autenticação.
+
 
 /admin/id(enviar o id do admin) método PUT: edita os seguintes campos do admin: "name", "email" e"cpf", sendo necessário token de autenticação.
 
+
 /admin/:id (enviar o id do admin) método DELETE: deleta o admin, necessário token de autenticação.
+
 
 /admin/password/update/:id (enviar o id do admin) método PATCH: atualiza a senha do admin utilizando os seguintes campos: "oldPassword" (informe a senha antiga), "newPassword" (informe a nova senha), "newPassword_confirmation" (informe novamente a nova senha), necessário token de autenticação.
 
+
 /admin/password/forgot método POST: envia para o e-mail de cadastro do admin, token para atualização de senha, caso a senha antiga tenha sido esquecida.
+
 
 /admin/password/reset método PATCH: altera a senha do admin utilizando o token recebido por email: "token", "password" e "password_confirmation".
 
+
 /admin/sessions método POST: retorna o token de autenticação, informando os dados do admin nos seguintes campos: "cpf" e "password".
 
+
 -------------Adm:Customer-------------
+
 /admin/customers método GET: Retorna para o adm, todos os clientes cadastrados.
+
 
 /admin/customers método PUT: Permite ao adm editar um cliente: "id"(string), "name"(string), "email"(string), "cpfOrCnpj"(string), "birthday"(date), "complement"(string).
 
+
 /admin/customers método DELETE: permite ao admin deletar o cliente: "id"(string).
+
 
 /admin/customers/state método PATCH: permite ao admin editar o estado de um cliente: "id"string, "active"(boolean).
 
+
+
 -------------Adm:Store-------------
+
 /admin/stores método GET: Retorna para o admin todas as lojas cadastradas.
+
 
 /admin/stores método PUT: Permite ao admin editar uma loja: "id"(string), "name"(string), "email"(string), "cnpj"(string), "birthday"(date).
 
+
 /admin/stores método DELETE: permite ao admin deletar a loja: "id"(string).
+
 
 /admin/stores/state método PATCH: permite ao admin editar o estado de uma loja: "id"string, "active"(boolean).
 
 -------------Adm:Consulant-------------
+
 /admin/consulants método GET: Retorna para o admin todos os consultores cadastrados.
+
 
 /admin/consulants método PUT: Permite ao admin editar um consultor: "id"(string), "name"(string), "email"(string), "cpf"(string), "birthday"(date).
 
+
 /admin/consulants método DELETE: permite ao admin deletar o consultor: "id"(string).
+
 
 /admin/consulants/state método PATCH: permite ao admin editar o estado de um consultor: "id"string, "active"(boolean).
 
+
 /admin/consulants/storeupdate método PATCH: permite ao admin editar a loja de um consultor: "id"string, "cnpjStore"(string).
 
+
 -------------Adm:Order-------------
+
 /admin/order método GET: Retorna para o admin todos os pedidos feitos.
+
 
 /admin/order/create método POST: Permite ao admin criar um pedido: "id"(string, inserir o id do consultor), "customerCpfOrCnpj"(string), "points_customer"(number), "obs"(string).
 
+
 /admin/order/approve método PATCH: permite ao admin aprovar um pedido: "id"(string), "pending"(boolean).
+
 
 /admin/order método DELETE: permite ao admin deletar um pedido: "id"string.
 
+
 /admin/order/consulant método POST: permite ao admin listar todos os pedidos de um consultor: "id"(string).
 
+
 /admin/order/customer método POST: permite ao admin listar todos os pedidos de um cliente: "id"(string).
+
 
 /admin/order/store método POST: permite ao admin listar todos os pedidos de uma loja: "id"(string).
