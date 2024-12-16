@@ -10,9 +10,9 @@ export const createAdmOrdertSchema = celebrate({
 });
 
 export const deletAdmOrdertSchema = celebrate({
-    [Segments.BODY]: {
-        id: Joi.string().required(),
-    },
+    [Segments.PARAMS]: Joi.object().keys({
+        id: Joi.string().required()
+       }),
 });
 export const listAdmOrdertSchema = celebrate({
     [Segments.BODY]: {

@@ -30,7 +30,7 @@ export default class AdmConsultantsControllers {
     }
 
     async delete (request: Request, response: Response): Promise <Response>{
-        const id= Number(request.body.id);
+        const id= Number(request.params.id);
         const deleteConsultantService = new DeleteConsultantService();
         await deleteConsultantService.execute({id});
         return response.status(204).send([]);

@@ -10,7 +10,7 @@ const admCustomersControllers = new AdmCustomersControllers();
 const admUpdateCustomerStateController =  new AdmUpdateCustomerStateController();
 
 AdmcustomersRouter.put('/', AdmUpdateCustomerSchema, AdmAuthMiddleware.execute, admCustomersControllers.update);
-AdmcustomersRouter.delete('/', AdmDeleteCustomerSchema, AdmAuthMiddleware.execute, admCustomersControllers.delete);
+AdmcustomersRouter.delete('/:id',AdmDeleteCustomerSchema, AdmAuthMiddleware.execute,admCustomersControllers.delete);
 AdmcustomersRouter.patch('/state/', AdmUpdateStateCustomerSchema, AdmAuthMiddleware.execute, admUpdateCustomerStateController.update ) 
 AdmcustomersRouter.get('/', AdmAuthMiddleware.execute, admCustomersControllers.index);
 

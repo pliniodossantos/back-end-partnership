@@ -12,7 +12,7 @@ const admUpdateConsultantStoreController = new AdmUpdateConsultantStoreControlle
 
 AdmconsulantsRouter.get('/', AdmAuthMiddleware.execute, admConsultantsControllers.index);
 AdmconsulantsRouter.put('/', AdmUpdateConsultantSchema, AdmAuthMiddleware.execute, admConsultantsControllers.update);
-AdmconsulantsRouter.delete('/', AdmDeleteConsultantSchema, AdmAuthMiddleware.execute, admConsultantsControllers.delete);
+AdmconsulantsRouter.delete('/:id', AdmDeleteConsultantSchema, AdmAuthMiddleware.execute, admConsultantsControllers.delete);
 AdmconsulantsRouter.patch('/state', AdmUpdateStateConsultantSchema, AdmAuthMiddleware.execute, admUpdateConsultantStateController.update ) 
 AdmconsulantsRouter.patch('/storeupdate/', AdmUpdateStoreConsultantSchema, AdmAuthMiddleware.execute, admUpdateConsultantStoreController.update)
 

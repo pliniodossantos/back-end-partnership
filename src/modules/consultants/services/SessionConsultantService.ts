@@ -18,6 +18,10 @@ export default class SessionConsultantService{
         if(!passwordConfirmed){
             throw new AppError('CPF ou Senha incorreto',401)
         }
+        if(consultant?.active == false){
+                    throw new AppError('Usuário inativo, entrar em contato com o administrador',401)
+        
+                }
 
         const token = sign({}, process.env.CONSULTANT_SECRET as Secret,{
             subject: String(consultant.id),

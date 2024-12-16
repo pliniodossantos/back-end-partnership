@@ -10,9 +10,9 @@ export const AdmUpdateConsultantSchema = celebrate({
     },
 });
 export const AdmDeleteConsultantSchema = celebrate({
-    [Segments.BODY]: {
-        id: Joi.string().required(),
-    },
+    [Segments.PARAMS]: Joi.object().keys({
+        id: Joi.string().required()
+       }),
 });
 
 export const AdmUpdateStateConsultantSchema = celebrate({

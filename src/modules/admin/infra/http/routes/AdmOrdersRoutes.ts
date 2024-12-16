@@ -21,8 +21,8 @@ const admListStoreOrdersControllers = new AdmListStoreOrdersControllers();
 admOrdersRouter.get('/', AdmAuthMiddleware.execute, admOrdersControllers.index)
 admOrdersRouter.post('/create/', createAdmOrdertSchema, AdmAuthMiddleware.execute, admCreateOrdersControllers.create)
 admOrdersRouter.patch('/approve/', approveAdmSchema, AdmAuthMiddleware.execute, approveAdmcontroller.update)
-admOrdersRouter.delete('/', deletAdmOrdertSchema, AdmAuthMiddleware.execute, admOrdersControllers.delete)
-admOrdersRouter.post('/consulant',listAdmOrdertSchema, AdmAuthMiddleware.execute, admListConsulantOrdersControllers.show)
+admOrdersRouter.delete('/:id', deletAdmOrdertSchema, AdmAuthMiddleware.execute, admOrdersControllers.delete)
+admOrdersRouter.post('/consulant/',listAdmOrdertSchema, AdmAuthMiddleware.execute, admListConsulantOrdersControllers.show)
 admOrdersRouter.post('/customer',listAdmOrdertSchema, AdmAuthMiddleware.execute, admListCustomerOrdersControllers.show)
 admOrdersRouter.post('/store',listAdmOrdertSchema, AdmAuthMiddleware.execute, admListStoreOrdersControllers.show)
 

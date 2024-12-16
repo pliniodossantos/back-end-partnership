@@ -13,9 +13,9 @@ export const AdmUpdateCustomerSchema = celebrate({
 });
 
 export const AdmDeleteCustomerSchema = celebrate({
-    [Segments.BODY]: {
-        id: Joi.string().required(),
-    },
+       [Segments.PARAMS]: Joi.object().keys({
+         id: Joi.string().required()
+        }),
 });
 
 export const AdmUpdateStateCustomerSchema = celebrate({

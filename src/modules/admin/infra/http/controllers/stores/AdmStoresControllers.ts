@@ -29,7 +29,7 @@ export default class AdmStoresControllers {
     }
 
     async delete (request: Request, response: Response): Promise <Response>{
-        const id= Number(request.body.id);
+        const id= Number(request.params.id);
         const deleteStoreService = new DeleteStoreService();
         await deleteStoreService.execute({id});
         return response.status(204).send([]);

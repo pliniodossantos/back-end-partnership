@@ -10,7 +10,7 @@ const admUpdateStoreStateController = new AdmUpdateStoreStateController();
 
 AdmstoresRouter.get('/', AdmAuthMiddleware.execute, admStoresControllers.index);
 AdmstoresRouter.put('/', AdmUpdateStoreSchema, AdmAuthMiddleware.execute, admStoresControllers.update);
-AdmstoresRouter.delete('/', AdmDeleteStoreSchema, AdmAuthMiddleware.execute, admStoresControllers.delete);
+AdmstoresRouter.delete('/:id', AdmDeleteStoreSchema, AdmAuthMiddleware.execute, admStoresControllers.delete);
 AdmstoresRouter.patch('/state', AdmUpdateStateStoreSchema, AdmAuthMiddleware.execute, admUpdateStoreStateController.update ) 
 
 

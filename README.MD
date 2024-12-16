@@ -120,7 +120,7 @@ Descritivo de rotas:
 /admin/send método POST: Dispara um e-mail para o e-mail de administrador principal contendo o "keyAcess" para criar um novo adm.
 
 
-/admin/create método POST: cria um novo admin a partir dos seguintes campos: "name"(string), "email"(string), "cpf"(string), "password"(string) e "KeyAcess"(string).
+/admin/create método POST: cria um novo admin a partir dos seguintes campos: "name"(string), "email"(string), "cpf"(string), "password"(string) e "keyAcess"(string).
 
 
 /admin/id(enviar o id do admin) método GET: Retorna todos os dados do admin, necessário token de autenticação, cada admin retorna apenas os seus próprios dados, dados das demais admins protegidos por autenticação.
@@ -152,7 +152,7 @@ Descritivo de rotas:
 /admin/customers método PUT: Permite ao adm editar um cliente: "id"(string), "name"(string), "email"(string), "cpfOrCnpj"(string), "birthday"(date), "complement"(string).
 
 
-/admin/customers método DELETE: permite ao admin deletar o cliente: "id"(string).
+/admin/customers/id(id do profissional) método DELETE: permite ao admin deletar o cliente: "id"(string).
 
 
 /admin/customers/state método PATCH: permite ao admin editar o estado de um cliente: "id"string, "active"(boolean).
@@ -167,7 +167,7 @@ Descritivo de rotas:
 /admin/stores método PUT: Permite ao admin editar uma loja: "id"(string), "name"(string), "email"(string), "cnpj"(string), "birthday"(date).
 
 
-/admin/stores método DELETE: permite ao admin deletar a loja: "id"(string).
+/admin/stores/id(id do profissional) método DELETE: permite ao admin deletar a loja: "id"(string).
 
 
 /admin/stores/state método PATCH: permite ao admin editar o estado de uma loja: "id"string, "active"(boolean).

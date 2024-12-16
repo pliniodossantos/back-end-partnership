@@ -30,7 +30,7 @@ export default class AdmCustomersControllers {
     }
 
     async delete (request: Request, response: Response): Promise <Response>{
-        const id= Number(request.body.id);
+        const id= Number(request.params.id);
         const deleteCustomerService = new DeleteCustomerService();
         await deleteCustomerService.execute({id});
         return response.status(204).send([]);

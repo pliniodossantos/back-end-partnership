@@ -19,6 +19,10 @@ export default class SessionStoreService{
         if(!passwordConfirmed){
             throw new AppError('CNPJ ou Senha incorreto',401)
         }
+        if(store?.active == false){
+                            throw new AppError('Usuário inativo, entrar em contato com o administrador',401)
+                
+                        }
 
         const token = sign({}, process.env.STORE_SECRET as Secret,{
             subject: String(store.id),

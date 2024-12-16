@@ -5,7 +5,7 @@ import ListOrdersService from "../../../../../orders/services/ListOrdersService"
 export default class AdmOrdersControllers {
 
 async delete (request: Request, response: Response): Promise <Response>{
-    const id= Number(request.body.id);
+    const id= Number(request.params.id);
     const deleteOrderService = new DeleteOrderService();
     await deleteOrderService.execute({id});
     return response.status(204).send();

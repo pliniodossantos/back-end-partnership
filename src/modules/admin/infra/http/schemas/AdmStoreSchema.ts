@@ -9,9 +9,9 @@ export const AdmUpdateStoreSchema = celebrate({
     },
 });
 export const AdmDeleteStoreSchema = celebrate({
-    [Segments.BODY]: {
-        id: Joi.string().required(),
-    },
+    [Segments.PARAMS]: Joi.object().keys({
+        id: Joi.string().required()
+       }),
 });
 export const AdmUpdateStateStoreSchema = celebrate({
     [Segments.BODY]: {
