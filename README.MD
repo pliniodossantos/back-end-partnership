@@ -210,3 +210,7 @@ Descritivo de rotas:
 
 
 /admin/order/store método POST: permite ao admin listar todos os pedidos de uma loja: "id"(string).
+
+/admin/order/decrease/customer método POST: permite ao admin subtrair os pontos utilizados de um profissional: "customerCpfOrCnpj"(string) e "points_customer"(number)
+
+/admin/order/decrease/consulant método POST: permite ao admin subtrair os pontos utilizados de um consultor:"consulantCpf"(string) e "points_consulant"(number)

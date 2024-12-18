@@ -21,7 +21,7 @@ export default class AdmAuthMiddleware{
             }
             return next()
         }catch (error){
-            throw new AppError('Token Invalido este', 401)
+            throw new AppError('Token Invalido', 401)
         }
     }
 

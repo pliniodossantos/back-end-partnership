@@ -9,6 +9,19 @@ export const createAdmOrdertSchema = celebrate({
     },
 });
 
+export const decreaseCustomerAdmOrdertSchema = celebrate({
+    [Segments.BODY]: {
+        customerCpfOrCnpj: Joi.string().required(),
+        points_customer: Joi.number().required(),
+    },
+});
+export const decreaseConsulantAdmOrdertSchema = celebrate({
+    [Segments.BODY]: {
+        consulantCpf: Joi.string().required(),
+        points_consulant: Joi.number().required(),
+    },
+});
+
 export const deletAdmOrdertSchema = celebrate({
     [Segments.PARAMS]: Joi.object().keys({
         id: Joi.string().required()
